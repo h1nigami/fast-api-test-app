@@ -1,3 +1,4 @@
+import datetime
 from pydantic import Field, BaseModel
 
 class BookingRequest(BaseModel):
@@ -8,6 +9,7 @@ class BookingResponse(BaseModel):
     id:int
     event_id:int
     user_id:str
+    created_at:datetime.datetime
 
     class Config:
         from_attributes = True
