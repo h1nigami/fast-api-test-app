@@ -156,7 +156,7 @@ free_seats = total_seats - count(bookings)
 Для SQLite это практичный и достаточный подход.
 При использовании PostgreSQL возможно усиление
 через SELECT ... FOR UPDATE.
-
+```
 Запуск проекта
 Локально
 uvicorn main:app --reload
