@@ -2,12 +2,12 @@ from pydantic import Field, BaseModel
 
 class BookingRequest(BaseModel):
     event_id: int = Field(..., gt=0)
-    user_id: int = Field(..., min_length=1)
+    user_id: str = Field(..., min_length=1)
 
 class BookingResponse(BaseModel):
     id:int
     event_id:int
-    user_id:int
+    user_id:str
 
     class Config:
         from_attributes = True
