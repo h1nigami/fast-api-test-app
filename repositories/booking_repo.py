@@ -1,3 +1,5 @@
+from sqlalchemy.exc import IntegrityError
+from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from models.booking import Booking
@@ -22,9 +24,8 @@ class BookingRepository:
             is not None
         )
 
-    def create(self, db: Session, event_id: int, user_id: str) -> Booking:
+    def create(self, db: Session, event_id: int, user_id: str):
         booking = Booking(event_id=event_id, user_id=user_id)
         db.add(booking)
-        db.commit()
-        db.refresh(booking)
         return booking
+
