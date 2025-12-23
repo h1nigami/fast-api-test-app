@@ -1,4 +1,4 @@
-from api import booking_router
+from api import booking_router, event_router
 from fastapi import FastAPI
 from core.database import Base, engine
 from models.booking import Booking
@@ -9,3 +9,4 @@ Base.metadata.create_all(engine)
 app = FastAPI(title="Booking API")
 
 app.include_router(booking_router)
+app.include_router(event_router)

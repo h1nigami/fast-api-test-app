@@ -8,3 +8,7 @@ class EventResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class EventRequest(BaseModel):
+    name: str = Field(..., min_length=1)
+    total_seats: int = Field(..., gt=0)

@@ -1,0 +1,20 @@
+from fastapi import HTTPException, status
+from sqlalchemy.orm import Session
+from repositories.event_repo import EventRepository
+from sqlalchemy.exc import IntegrityError
+
+
+class EventService:
+    def __init__(self):
+        self.event_repo = EventRepository()
+
+    def create_event(self, db: Session, name: str, total_seats: int):
+        try:
+            with db.begin():
+                event = self.event_repo.create(db, name, total_seats)
+                return event
+        except IntegrityError:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Event with this name already exists",
+            )

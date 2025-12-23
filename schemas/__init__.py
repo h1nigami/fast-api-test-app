@@ -1,2 +1,2 @@
 from .booking import BookingRequest, BookingResponse
-from .event import EventResponse
+from .event import EventResponse, EventRequest
