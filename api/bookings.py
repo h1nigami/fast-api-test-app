@@ -12,8 +12,8 @@ booking_router = APIRouter(prefix="/api/bookings", tags=["bookings"])
 service = BookingService()
 
 @booking_router.post("/reserve", response_model=BookingResponse, status_code=status.HTTP_201_CREATED)
-def reserve(request: BookingRequest, db: Session = Depends(get_db)):
+async def reserve(request: BookingRequest, db: Session = Depends(get_db)):
     """Эндпоинт для бронирования мест"""
-    booking = service.reserve(db=db, event_id=request.event_id, user_id=request.user_id)
+    booking = await service.reserve(db=db, event_id=request.event_id, user_id=request.user_id)
     return booking
     

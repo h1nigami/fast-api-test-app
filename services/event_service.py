@@ -8,9 +8,9 @@ class EventService:
     def __init__(self):
         self.event_repo = EventRepository()
 
-    def create_event(self, db: Session, name: str, total_seats: int):
+    async def create_event(self, db: Session, name: str, total_seats: int):
         try:
-            with db.begin():
+            async with db.begin():
                 event = self.event_repo.create(db, name, total_seats)
                 return event
         except IntegrityError:

@@ -11,7 +11,7 @@ event_router = APIRouter(prefix="/api/events", tags=["events"])
 service = EventService()
 
 @event_router.post("/", response_model=EventResponse, status_code=status.HTTP_201_CREATED)
-def create_event(request: EventRequest, db: Session = Depends(get_db)):
+async def create_event(request: EventRequest, db: Session = Depends(get_db)):
     """Эндпоинт для создания события"""
-    event = service.create_event(db=db, name=request.name, total_seats=request.total_seats)
+    event = await service.create_event(db=db, name=request.name, total_seats=request.total_seats)
     return event
