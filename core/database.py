@@ -1,11 +1,15 @@
 from sqlalchemy.orm import  declarative_base
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
+import os
 
-DATABASE_URL = "sqlite+aiosqlite:///./booking.db"
+from .config import load_env
+
+load_env()
+
+DATABASE_URL = os.getenv("DSN")
 
 engine = create_async_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False},
 )
 
 SessionLocal = async_sessionmaker(
