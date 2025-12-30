@@ -19,7 +19,6 @@ func InitDatabase(ctx context.Context, db_url string) error {
 	if err := db.Ping(ctx); err != nil {
 		return fmt.Errorf("failed to ping database")
 	}
-
 	return nil
 }
 
