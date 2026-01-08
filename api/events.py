@@ -1,5 +1,5 @@
 from fastapi.routing import APIRouter
-from fastapi import status, Depends, Query
+from fastapi import status, Depends, Query  
 from schemas import EventRequest, EventResponse
 
 from services.event_service import EventService
@@ -14,8 +14,8 @@ service = EventService()
 async def create_event(
     request: EventRequest,
     db: Session = Depends(get_db),
-    description: str = Query(None, description="Описание события"),
-    date: str = Query(None, description="Дата события"),
+    name: str = Query(None, description="Название события"),
+    total_seats: int = Query(None, description="Количество мест"),
 ):
     """Эндпоинт для создания события"""
     event = await service.create_event(

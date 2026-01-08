@@ -13,10 +13,10 @@ service = BookingService()
 
 @booking_router.post("/reserve", response_model=BookingResponse, status_code=status.HTTP_201_CREATED)
 async def reserve(
-                request: BookingRequest,
-                db: Session = Depends(get_db),
-                event_id: int = Query(None, description="ID события"),
-                user_id: str = Query(None, description="ID пользователя")
+   request: BookingRequest,
+   db: Session = Depends(get_db),
+   event_id: int = Query(None, description="ID события"),
+   user_id: str = Query(None, description="ID пользователя")
                    ):
     """Эндпоинт для бронирования мест"""
     booking = await service.reserve(db=db, event_id=request.event_id, user_id=request.user_id)
