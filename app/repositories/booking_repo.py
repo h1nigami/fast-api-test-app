@@ -2,7 +2,7 @@ from sqlalchemy.exc import IntegrityError
 from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import func, select, exists
-from models.booking import Booking
+from ..models.booking import Booking
 
 
 class BookingRepository:

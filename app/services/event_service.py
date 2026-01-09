@@ -1,6 +1,6 @@
 from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from repositories.event_repo import EventRepository
+from ..repositories.event_repo import EventRepository
 from sqlalchemy.exc import IntegrityError
 
 

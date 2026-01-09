@@ -167,4 +167,4 @@ Swagger доступен по адресу:
 http://127.0.0.1:8000/docs
 
 Запуск в Docker
-docker-compose up --build
+docker compose up --build

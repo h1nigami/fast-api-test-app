@@ -1,9 +1,9 @@
 from fastapi.routing import APIRouter
 from fastapi import status, Depends, Query
-from schemas import BookingRequest, BookingResponse
+from ..schemas import BookingRequest, BookingResponse
 
-from services.booking_service import BookingService
-from core.database import get_db
+from ..services.booking_service import BookingService
+from ..core.database import get_db
 from sqlalchemy.orm import Session
 
 

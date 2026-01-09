@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, UniqueConstraint
 from sqlalchemy.sql import func
 
-from core.database import Base
+from ..core.database import Base
 
 
 class Booking(Base):

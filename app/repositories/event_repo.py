@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from models.event import Event
+from ..models.event import Event
 from sqlalchemy import select
 
 class EventRepository:

@@ -1,8 +1,8 @@
 from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
-from repositories.event_repo import EventRepository
-from repositories.booking_repo import BookingRepository
+from ..repositories.event_repo import EventRepository
+from ..repositories.booking_repo import BookingRepository
 
 
 class BookingService:

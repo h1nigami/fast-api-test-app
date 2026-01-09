@@ -1,9 +1,9 @@
 from fastapi.routing import APIRouter
 from fastapi import status, Depends, Query  
-from schemas import EventRequest, EventResponse
+from ..schemas import EventRequest, EventResponse
 
-from services.event_service import EventService
-from core.database import get_db
+from ..services.event_service import EventService
+from ..core.database import get_db
 from sqlalchemy.orm import Session
 
 event_router = APIRouter(prefix="/api/events", tags=["events"])

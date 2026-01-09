@@ -1,8 +1,8 @@
-from api import booking_router, event_router
+from .api import booking_router, event_router
 from fastapi import FastAPI
-from core.database import Base, engine
-from models.booking import Booking
-from models.event import Event
+from .core.database import Base, engine
+from .models.booking import Booking
+from .models.event import Event
 import asyncio
 
 
@@ -10,7 +10,7 @@ import asyncio
 
 app = FastAPI(title="Booking API")
 
-@app.on_event("startup")
+@app.on_event("startup")    
 async def init_models():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
