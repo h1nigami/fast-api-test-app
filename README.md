@@ -74,8 +74,8 @@ app/
 ├── services/ # бизнес-логика
 ├── core/ # инфраструктура (БД)
 
-
 Такое разделение позволяет:
+
 - изолировать бизнес-логику
 - упростить тестирование
 - избежать смешивания HTTP и логики работы с данными
@@ -85,17 +85,20 @@ app/
 ## Модель данных
 
 ### events
+
 - id
 - name
 - total_seats — вместимость события
 
 ### bookings
+
 - id
 - event_id
 - user_id
 - created_at
 
 Дополнительно:
+
 - уникальное ограничение `(event_id, user_id)`
   для защиты от повторного бронирования
 
@@ -157,10 +160,10 @@ free_seats = total_seats - count(bookings)
 При использовании PostgreSQL возможно усиление
 через SELECT ... FOR UPDATE.
 ```
+
 Запуск проекта
 Локально
-uvicorn main:app --reload
-
+uvicorn app.main:app --reload
 
 Swagger доступен по адресу:
 
