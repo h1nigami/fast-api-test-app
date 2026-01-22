@@ -1,5 +1,5 @@
 import datetime
-from pydantic import Field, BaseModel
+from pydantic import Field, BaseModel, ConfigDict
 
 class BookingRequest(BaseModel):
     event_id: int = Field(..., gt=0)
@@ -11,5 +11,6 @@ class BookingResponse(BaseModel):
     user_id:str
     created_at:datetime.datetime
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(
+        from_attributes=True
+    )
