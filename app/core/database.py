@@ -6,7 +6,7 @@ from .config import load_env
 
 load_env()
 
-#DSN for example: DSN=postgresql+asyncpg://user:password@localhost:5432/postgres
+#DSN for example: DSN=sqlite+aiosqlite:///myfile.db
 DATABASE_URL = os.getenv("DSN")
 
 engine = create_async_engine(

@@ -1,6 +1,6 @@
 venv
 __pycache__
-booking.db
+*.db
 .env
 go.mod
 .vscode
